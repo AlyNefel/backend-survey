@@ -9,6 +9,7 @@ dontenv.config()
 
 const app =express();
 app.use(cors())
+app.use(cors({ origin: 'https://survey-master-class.netlify.app/' }));
 app.use(express.json())
 connectDB()
 app.use(taskRoutes,adminRoutes,form)
