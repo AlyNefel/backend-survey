@@ -8,8 +8,11 @@ import form from './routes/form.js'
 dontenv.config()
 
 const app =express();
-app.use(cors())
-app.use(cors({ origin: 'https://survey-master-class.netlify.app/' }));
+app.use(cors({
+  origin: 'https://survey-master-class.netlify.app', // 🔐 your Netlify domain
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
 app.use(express.json())
 connectDB()
 app.use(taskRoutes,adminRoutes,form)
